@@ -1,13 +1,14 @@
 apiVersion: v1
-kind: pod
+kind: Pod
 metadata:
   name: helloworld
-  lablels:
-      app: helloworld
+  labels:
+    role: helloworld
 spec:
   containers:
-  - name: k8s-demo
-    image: arjunachari12/k8s-demo
-  ports:
-  - name: demo-pod-port
-    containerPort: 3000
+    - name: hellocontainer
+      image: arjunachari12/k8s-demo
+      ports:
+        - name: web
+          containerPort: 3000
+          protocol: TCP
